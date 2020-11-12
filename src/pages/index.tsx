@@ -38,12 +38,13 @@ const Index = () => {
     let Y = boxCoord.substring(1, 2)
 
     if (board[X][Y] === null) {
-      // Player 1
       let newBoardState = board
+      // Player 1
       if (currentPlayer === false) {
         newBoardState[X][Y] = 'X'
         setBoard(newBoardState)
       }
+      // Player 2
       if (currentPlayer === true) {
         newBoardState[X][Y] = 'O'
         setBoard(newBoardState)
@@ -52,9 +53,11 @@ const Index = () => {
       if (didSomeoneWin) {
         setGameOver(true)
         let currentScore = score
+        // Player 1
         if (currentPlayer === false) {
           currentScore[0] += 1
         }
+        // Player 2
         if (currentPlayer === true) {
           currentScore[1] += 1
         }
@@ -102,7 +105,9 @@ const Index = () => {
       (board[0][0] !== null &&
         board[0][0] === board[1][1] &&
         board[1][1] === board[2][2]) ||
-      (board[2][0] !== null && board[2][0] === board[1][1] && board[1][1] === board[0][2])
+      (board[2][0] !== null && 
+        board[2][0] === board[1][1] &&
+        board[1][1] === board[0][2])
     ) {
       return true
     }
@@ -137,7 +142,7 @@ const Index = () => {
       <div>
         {tie && <b>Tie! &nbsp;</b>}
         {!tie && gameOver && <b>Winer: {playerIndicator}!</b>}
-        {gameOver && playerIndicator && <button onClick={reset}>Play again?</button>}
+        {gameOver && <button onClick={reset}>Play again?</button>}
       </div>
       <table
         className="tic-tac-toe"
