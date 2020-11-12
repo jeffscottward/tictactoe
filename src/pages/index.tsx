@@ -141,7 +141,7 @@ const Index = () => {
       </div>
       <div>
         {tie && <b>Tie! &nbsp;</b>}
-        {!tie && gameOver && <b>Winer: {playerIndicator}!</b>}
+        {!tie && gameOver && <b>Winner: {playerIndicator}!</b>}
         {gameOver && <button onClick={reset}>Play again?</button>}
       </div>
       <table
